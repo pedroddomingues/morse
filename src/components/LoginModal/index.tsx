@@ -9,7 +9,7 @@ const LoginModal = () => {
 			<input type="checkbox" id="loginModal" className="modal-toggle" />
 			<label
 				htmlFor="loginModal"
-				className="modal cursor-pointer  modal-bottom sm:modal-middle"
+				className="modal cursor-pointer modal-bottom sm:modal-middle max-h-screen"
 			>
 				<label className="modal-box relative">
 					<h3 className="text-lg font-bold">Welcome!</h3>
@@ -20,7 +20,7 @@ const LoginModal = () => {
 							className="input input-bordered focus:outline-none w-full"
 						/>
 						<input
-							type="password"
+							type="current-password"
 							placeholder="Password"
 							className="input input-bordered focus:outline-none w-full mt-4"
 						/>

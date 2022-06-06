@@ -1,4 +1,9 @@
-const SendMessageHero = ({ type, handleSendMessage }) => {
+interface iProps {
+	type?: string;
+	handleSendMessage: () => void;
+}
+
+const SendMessageHero = ({ type, handleSendMessage }: iProps) => {
 	let className;
 	if (type === "md")
 		className =

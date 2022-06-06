@@ -1,18 +1,26 @@
-import { createContext, useState } from "react";
+import { createContext, PropsWithChildren, useState } from "react";
 
 interface iNotification {
 	message: string;
 	type?: string;
+	visible: boolean;
 }
 
 const defaultNotification: iNotification = {
-	message: "test",
+	message: "",
 	type: "success",
+	visible: false,
 };
 
-export const NotificationContext = createContext(defaultNotification);
+interface iNotificationContext {
+	showNotification: (notification: iNotification) => void;
+}
 
-export const NotificationProvider = ({ children }) => {
+export const NotificationContext = createContext<iNotificationContext | null>(
+	null
+);
+
+export const NotificationProvider = ({ children }: PropsWithChildren<null>) => {
 	const [notification, setNotification] =
 		useState<iNotification>(defaultNotification);
 
@@ -111,7 +119,8 @@ export const NotificationProvider = ({ children }) => {
 	return (
 		<NotificationContext.Provider value={{ showNotification }}>
 			<div
-				className={`alert shadow-lg h-12 md:w-1/2 w-3/4 text-xs md:text-sm absolute left-[12.5%] md:left-1/4 -top-20 z-50 ${animation}`}
+				className={`alert shadow-lg max-h-12 md:w-1/2 w-3/4 text-xs md:text-sm absolute left-[12.5%] md:left-1/4 -top-20 z-50 ${animation}`}
+				// className="absolute top-28 overflow-hidden"
 			>
 				<div>
 					{icon()}

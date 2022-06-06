@@ -46,6 +46,7 @@ const Header = () => {
 											showNotification({
 												type: "success",
 												message: "test",
+												visible: true,
 											})
 										}
 										className="justify-between"
@@ -61,6 +62,7 @@ const Header = () => {
 												type: "warning",
 												message:
 													"Function not implemented yet!",
+												visible: true,
 											})
 										}
 										className="justify-between"
