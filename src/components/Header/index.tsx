@@ -1,12 +1,13 @@
+import { NextComponentType } from "next";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useNotification } from "../../hooks/useNotification";
 import Avatar from "../Avatar";
 import LoginModal from "../LoginModal";
 
-const Header = () => {
+const Header: NextComponentType = () => {
 	const { data: session } = useSession();
-	const { showNotification } = useNotification();
+	const { addNotification } = useNotification();
 
 	function handleSignOut() {
 		signOut();
@@ -43,10 +44,10 @@ const Header = () => {
 								<li>
 									<button
 										onClick={() =>
-											showNotification({
-												type: "success",
-												message: "test",
-												visible: true,
+											addNotification({
+												type: "error",
+												message:
+													"Function not implemented yet!",
 											})
 										}
 										className="justify-between"
@@ -58,11 +59,10 @@ const Header = () => {
 								<li>
 									<button
 										onClick={() =>
-											showNotification({
+											addNotification({
 												type: "warning",
 												message:
 													"Function not implemented yet!",
-												visible: true,
 											})
 										}
 										className="justify-between"

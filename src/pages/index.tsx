@@ -35,6 +35,7 @@ const Home: NextPage = () => {
 			});
 		}
 	}
+
 	return (
 		<div className="flex flex-col max-h-screen min-h-screen">
 			<Header />

@@ -2,7 +2,9 @@ module.exports = {
 	mode: 'jit',
 	content: [
 		"./src/pages/**/*.tsx",
-		"./src/components/**/*.tsx"
+		"./src/components/**/*.tsx",
+		"./src/contexts/**/*.tsx",
+		"./src/hooks/**/*.tsx",
 	],
 	theme: {
 		minHeight: {
@@ -14,12 +16,11 @@ module.exports = {
 	plugins: [require("daisyui")],
 	daisyui: {
 		styled: true,
-		themes: ['aqua', 'night'],
+		themes: true,
 		base: true,
 		utils: true,
 		logs: true,
 		rtl: false,
 		prefix: "",
-		darkTheme: "night",
 	  },
 }
