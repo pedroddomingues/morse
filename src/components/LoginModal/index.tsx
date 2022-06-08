@@ -34,7 +34,10 @@ const LoginModal = () => {
 						>
 							<FaGithub className="w-8 h-8 md:w-12 md:h-12" />
 						</button>
-						<button className="w-12 h-12 md:w-24 md:h-24 btn btn-ghost border-primary-content border-[1px] p-1 flex items-center justify-center">
+						<button
+							className="w-12 h-12 md:w-24 md:h-24 btn btn-ghost border-primary-content border-[1px] p-1 flex items-center justify-center"
+							onClick={() => signIn("42-school")}
+						>
 							<Image
 								src={fortyTwoLogo}
 								className="w-8 h-8 md:w-12 md:h-12"

@@ -2,17 +2,15 @@ import { decode, encode } from "morse-converter";
 import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
+import LayoutWithHeaderAndFooter from "../components/LayoutWithHeaderAndFooter";
 import SendMessageHero from "../components/SendMessageHero";
 import TextInput from "../components/TextInput";
-import { useNotification } from "../hooks/useNotification";
 import { nextApi } from "../infra/api";
 
 const Home: NextPage = () => {
 	const { data: session } = useSession();
 	const [decodedText, setDecodedText] = useState("");
 	const [encodedText, setEncodedText] = useState("");
-	const { notification } = useNotification();
 
 	useEffect(() => {
 		decodedText !== ""
@@ -31,15 +29,15 @@ const Home: NextPage = () => {
 			const response = await nextApi.post("/messages", {
 				encoded: encodedText,
 				decoded: decodedText,
-				userId: session.user?.id,
+				userEmail: session.user?.email,
 			});
+			console.log({ response });
 		}
 	}
 
 	return (
-		<div className="flex flex-col max-h-screen min-h-screen">
-			<Header />
-			<div className="flex flex-col md:flex-row md:min-h-[calc(100vh-12rem)] min-h-[calc(100vh-4rem-4px)]">
+		<LayoutWithHeaderAndFooter>
+			<div className="flex flex-col md:flex-row min-h-[calc(100vh-7rem-4px)] md:min-h-[calc(100vh-15rem)]">
 				<div className="bg-base-100 flex-1 flex items-center justify-center">
 					<TextInput
 						placeholder="Write your message to be encoded!"
@@ -59,7 +57,7 @@ const Home: NextPage = () => {
 				</div>
 			</div>
 			<SendMessageHero type="md" handleSendMessage={handleSendMessage} />
-		</div>
+		</LayoutWithHeaderAndFooter>
 	);
 };
 

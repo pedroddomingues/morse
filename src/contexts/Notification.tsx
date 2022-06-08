@@ -85,7 +85,9 @@ function icon(notification: iNotification) {
 }
 
 //TODO: implement animation
-export const NotificationProvider = ({ children }: PropsWithChildren<null>) => {
+export const NotificationProvider = ({
+	children,
+}: PropsWithChildren<JSX.IntrinsicAttributes>) => {
 	const [notifications, setNotifications] = useState<iNotification[]>([]);
 
 	const addNotification = useCallback(

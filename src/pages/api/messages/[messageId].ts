@@ -22,23 +22,6 @@ export default async function handler(
 				error: "Internal server error",
 			});
 		}
-	} else if (req.method === "POST") {
-		const { userId, encoded, decoded } = req.body;
-
-		const message = await prisma.message.create({
-			data: {
-				userId,
-				encoded,
-				decoded,
-			},
-		});
-
-		if (message) return res.status(201).json(message);
-		else {
-			return res.status(500).json({
-				error: "Internal server error",
-			});
-		}
 	}
 	return res.status(400).json({
 		error: "Bad request",
