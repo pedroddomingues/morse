@@ -6,9 +6,9 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
-	shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+    provider          = "postgresql"
+    url               = env("DATABASE_URL")
+    shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Account {
@@ -24,6 +24,7 @@ model Account {
     scope             String?
     id_token          String? @db.Text
     session_state     String?
+    created_at        BigInt  @default(0)
 
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
