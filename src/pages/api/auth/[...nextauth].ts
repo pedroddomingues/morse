@@ -40,21 +40,21 @@ export default NextAuth({
 			return session;
 		},
 	},
-	events: {
-		createUser(message) {
-			console.log("createUser", message);
-		},
-		linkAccount(message) {
-			console.log("linkAccount", message);
-		},
-		session(message) {
-			console.log("session", message);
-		},
-		signIn(message) {
-			console.log("signIn", message);
-		},
-		updateUser(message) {
-			console.log("updateUser", message);
-		},
-	},
+	// events: {
+	// 	createUser(message) {
+	// 		console.log("createUser", message);
+	// 	},
+	// 	linkAccount(message) {
+	// 		console.log("linkAccount", message);
+	// 	},
+	// 	session(message) {
+	// 		console.log("session", message);
+	// 	},
+	// 	signIn(message) {
+	// 		console.log("signIn", message);
+	// 	},
+	// 	updateUser(message) {
+	// 		console.log("updateUser", message);
+	// 	},
+	// },
 });

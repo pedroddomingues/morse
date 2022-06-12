@@ -6,10 +6,10 @@ export default async function handler(
 	res: NextApiResponse
 ) {
 	if (req.method === "GET") {
-		const messageId = req.query.messageId as string;
+		const messageURL = req.query.messageURL as string;
 		const message = await prisma.message.findFirst({
 			where: {
-				id: messageId,
+				url: messageURL,
 			},
 			include: {
 				user: { select: { id: true, name: true, image: true } },

@@ -20,7 +20,6 @@ export default async function handler(
 		}
 	} else if (req.method === "POST") {
 		const { encoded, decoded, userEmail } = req.body;
-
 		const user = await prisma.user.findFirst({
 			where: { email: userEmail },
 		});

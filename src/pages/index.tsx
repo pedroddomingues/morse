@@ -32,6 +32,9 @@ const Home: NextPage = () => {
 				userEmail: session.user?.email,
 			});
 			console.log({ response });
+			navigator.clipboard.writeText(
+				`http://localhost:3000/messages/${response.data.url}`
+			);
 		}
 	}
 

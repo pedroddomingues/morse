@@ -45,9 +45,10 @@ model User {
     email         String?   @unique
     emailVerified DateTime?
     image         String?
+    password      String?
     accounts      Account[]
     sessions      Session[]
-    Message       Message[]
+    messages      Message[]
 }
 
 model VerificationToken {
@@ -60,9 +61,10 @@ model VerificationToken {
 
 model Message {
     id        String   @id @default(cuid())
+    url       String   @default(dbgenerated("nanoid()")) @db.VarChar(6)
     userId    String
     encoded   String
     decoded   String
     createdAt DateTime @default(now())
-    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
