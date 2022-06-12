@@ -33,7 +33,7 @@ const Home: NextPage = () => {
 			});
 			console.log({ response });
 			navigator.clipboard.writeText(
-				`http://localhost:3000/messages/${response.data.url}`
+				`https://morse.pedroddomingues.dev/messages/${response.data.url}`
 			);
 		}
 	}

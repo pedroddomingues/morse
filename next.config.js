@@ -3,7 +3,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'avatars.githubusercontent.com'],
+    domains: ['localhost', 'avatars.githubusercontent.com', 'morse.pedroddomingues.dev'],
   },
   typescript: {
     ignoreBuildErrors: true,

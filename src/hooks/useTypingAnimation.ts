@@ -9,16 +9,6 @@ export enum TypePhase {
 	Deleting,
 }
 
-const TYPING_INTERVAL_MIN = 40;
-const TYPING_INTERVAL_MAX = 60;
-const DELETING_INTERVAL = 30;
-const DELETING_PAUSE_MS = 100;
-
-const getRandomTypingInterval = () =>
-	Math.floor(
-		Math.random() * (TYPING_INTERVAL_MAX - TYPING_INTERVAL_MIN + 1)
-	) + TYPING_INTERVAL_MIN;
-
 export const useTypedAnimation = (
 	strings: string[],
 	next: boolean,
@@ -57,7 +47,7 @@ export const useTypedAnimation = (
 						const nextIndex = selectedIndex + 1;
 						setSelectedIndex(strings[nextIndex] ? nextIndex : 0);
 						setPhase(TypePhase.Typing);
-					}, DELETING_PAUSE_MS);
+					}, 50);
 					return () => clearTimeout(timeout);
 				}
 
