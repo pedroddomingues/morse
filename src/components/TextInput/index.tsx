@@ -1,4 +1,16 @@
-const TextInput = ({ title, placeholder, value, onChange }) => {
+interface iTextInputProps {
+	title: string;
+	placeholder: string;
+	value: string;
+	onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+const TextInput = ({
+	title,
+	placeholder,
+	value,
+	onChange,
+}: iTextInputProps) => {
 	return (
 		<div className="flex flex-col justify-center items-center px-10 md:px-16 w-full md:min-h-3/4">
 			<h3 className="font-bold text-lg md:text-2xl pb-4 md:pb-8 w-full text-center md:pt-6">

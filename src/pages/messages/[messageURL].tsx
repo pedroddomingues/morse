@@ -1,9 +1,18 @@
+import { Message, User } from "@prisma/client";
 import cn from "classnames";
 import { GetServerSideProps, NextPage } from "next";
 import { useState } from "react";
 import LayoutWithHeaderAndFooter from "../../components/LayoutWithHeaderAndFooter";
 import { TypePhase, useTypedAnimation } from "../../hooks/useTypingAnimation";
 import { nextApi } from "../../infra/api";
+
+interface iMessage extends Message {
+	user: User;
+}
+
+interface iMessageProps {
+	message: iMessage;
+}
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const messageURL = context.params?.messageURL as string;
@@ -15,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	};
 };
 
-const Message: NextPage = ({ message }) => {
+const MessagePage: NextPage<iMessageProps> = ({ message }) => {
 	const [toggleMessageEncoding, setToggleMessageEncoding] = useState(false);
 	const { phase, selectedString, typedAnimation } = useTypedAnimation(
 		[message.encoded, message.decoded],
@@ -58,4 +67,4 @@ const Message: NextPage = ({ message }) => {
 	);
 };
 
-export default Message;
+export default MessagePage;

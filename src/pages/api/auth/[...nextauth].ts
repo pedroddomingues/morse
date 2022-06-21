@@ -33,6 +33,7 @@ export default NextAuth({
 			session = {
 				...session,
 				user: {
+					// @ts-expect-error: can't extend user inside session
 					id: user.id,
 					...session.user,
 				},
